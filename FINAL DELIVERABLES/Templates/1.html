@@ -1,0 +1,105 @@
+<html>
+
+<style>
+
+  .button {
+    display: inline-block;
+    border-radius: 4px;
+    background-color: #eb4559;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 20px;
+    padding: 20px;
+    width: 150px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+    font-family: Lucida Handwriting;
+  }
+  
+  .button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  
+  .button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+  
+  .button:hover span {
+    padding-right: 25px;
+  }
+  
+  .button:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
+
+  .wavies > use{
+    animation: waveAround 12s linear infinite;
+    &:nth-child(1) { animation-delay:-2s; }
+    &:nth-child(2) { animation-delay:-2s; animation-duration:5s }
+    &:nth-child(3) { animation-delay:-4s; animation-duration:3s }
+  }
+  
+  @keyframes waveAround{
+    0% { transform: translate(-90px , 0%) }
+    100% { transform: translate(85px , 0%) }
+  }
+  
+  body {
+    height: 100vh;
+    background-color: #eb4559;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+  }
+  .inner-header {
+    height:40vh;
+    width:100%;
+    margin: 0;
+    padding: 150  0 0;
+    color:white;
+    font-size: 30px;
+    font-family: Lucida Handwriting;
+  }
+  .flex {
+    
+    align-items: center;
+    text-align: center;
+  }
+  form{
+    position: absolute;
+    top:7%;
+    left:94%;
+    transform: translate(-50%,-50%);
+  }
+</style>
+<body>
+  <form action="http://127.0.0.1:5000/">
+    <button class="button" style="vertical-align:middle" ><span>Back </span></button>
+  </form>
+  <div class="inner-header flex">
+    <h1>The Number Predicted Is</h1>
+    <h1 id="a">1</h1>
+  </div>
+  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none">
+    <defs>
+       <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+    </defs>
+    <g class="wavies">
+      <use xlink:href="#gentle-wave" x="50" y="0" fill="#d5d5d5"/>
+      <use xlink:href="#gentle-wave" x="50" y="3" fill="#e5e5e5"/>
+      <use xlink:href="#gentle-wave" x="50" y="6" fill="white"/>  
+    </g>
+   </svg>
+</body>
+</html>
